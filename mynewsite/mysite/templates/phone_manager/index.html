@@ -1,0 +1,42 @@
+<!-- templates/phone_manager/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Phones</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4">All Phones</h1>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for phone in phones %}
+                <tr>
+                    <td>{{ phone.brand }}</td>
+                    <td>{{ phone.model_name }}</td>
+                    <td>${{ phone.price }}</td>
+                    <td>{{ phone.description }}</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="{% url 'phone_update' phone.pk %}">Edit</a>
+                        <a class="btn btn-danger btn-sm" href="{% url 'phone_delete' phone.pk %}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-success" href="{% url 'phone_create' %}">Add New Phone</a>
+    </div>
+</body>
+</html>
