@@ -11,6 +11,21 @@
 <body>
     <div class="container">
         <h1 class="mt-5 mb-4">All Phones</h1>
+
+        <!-- 搜尋表單 -->
+        <form class="mb-4">
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <label class="sr-only" for="search">Search</label>
+                    <input type="text" class="form-control mb-2" id="search" name="search" placeholder="Search by brand">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-2">Search</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- 原本的手機清單資料 -->
         <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -36,6 +51,8 @@
                 {% endfor %}
             </tbody>
         </table>
+
+        <!-- 添加手機的按鈕 -->
         <a class="btn btn-success" href="{% url 'phone_create' %}">Add New Phone</a>
     </div>
 </body>

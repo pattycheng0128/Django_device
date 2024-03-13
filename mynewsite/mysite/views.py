@@ -5,6 +5,11 @@ from .forms import PhoneDeviceForm
 # Create your views here.
 def index(request):
     phones = PhoneDevice.objects.all()
+    # 如果有提交搜尋表單
+    if 'search' in request.GET:
+        search_term = request.GET['search']
+        phones = PhoneDevice.objects.filter(brand__icontains=search_term)
+
     return render(request, 'phone_manager/index.html', {'phones': phones})
 
 def phone_list(request):
