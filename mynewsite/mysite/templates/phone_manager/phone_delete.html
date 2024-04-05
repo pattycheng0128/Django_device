@@ -1,16 +1,11 @@
 <!-- templates/phone_manager/phone_confirm_delete.html -->
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Delete Phone</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %} Delete Phone {% endblock %}
+{% block content %}
     <h1>Delete Phone</h1>
     <p>Are you sure you want to delete {{ phone.brand }} - {{ phone.model_name }}?</p>
     <form method="post">
         {% csrf_token %}
         <button type="submit">Delete</button>
     </form>
-</body>
-</html>
+{% endblock %}

@@ -14,6 +14,12 @@ def index(request):
         search_term = request.GET['search']
         phones = PhoneDevice.objects.filter(brand__icontains=search_term)
 
+    if request.session.test_cookie_worked():
+        request.session.delete_test_cookie()
+        message = "cookie supported!"
+    else:
+        message = "cookie not supported"
+    request.session.set_test_cookie()
     return render(request, 'phone_manager/index.html', {'phones': phones})
 
 #  ==== 註冊相關功能 ====
