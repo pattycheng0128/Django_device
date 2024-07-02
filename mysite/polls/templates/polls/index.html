@@ -11,7 +11,14 @@
     <h1>Hello</h1>
     <p>name: {{ user_data.name }}</p>
     <p>age: {{ user_data.age }} </p>
-    
+    <form action="/index/" method="POST">
+        {% csrf_token%}
+        <p>Name:</p>
+        <p><input type="text" name="name"></p>
+        <p>Age</p>
+        <p><input type="text" name="age"></p>
+        <p><input type="submit"></p>
+    </form>
     
 </body>
 </html>
