@@ -1,25 +1,17 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    <h1>{{ name }}</h1>
-    <p>age: {{ age }}</p>
-    <p>vip: {{ vip }} </p>
-    <p>{{ dc.a }}</p>
-    <p>{{ dc.b }}</p>
-    <hr>
-    {% for i in loops%}
-        <h5>{{ i }}</h5>
-    {% endfor %}
-    <hr>
-    <script>
-        let var1 = "{{ name }}";
-        const con1 = "{{ age }}";
-        console.log(var1, con1);
-    </script>
+    <h1>Hello</h1>
+    <p>name: {{ user_data.name }}</p>
+    <p>age: {{ user_data.age }} </p>
+    
+    
 </body>
 </html>

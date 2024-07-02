@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-4">
+            <form action="/register/" method="post" >
+              {% csrf_token %}
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control"  name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" name="name">
+                  </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password1</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" name="password1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password2</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2" name="password2">
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
