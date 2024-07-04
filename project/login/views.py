@@ -19,9 +19,9 @@ def login(request):
                 return render(request, './login/login.html')
             if password == _password:
                 request.session['loginFlag'] = True
+                request.session['username'] = user[0].name
                 return redirect('/')
             else:
-                print('fail')
                 return render(request, './login/login.html')
     return render(request, './login/login.html')
 
@@ -46,7 +46,7 @@ def register(request):
     return render(request, './login/register.html')
 
 def logout(request):
-    if request.session['loginFlag']:
+    if request.session.get('loginFlag', None):
         request.session.flush()
         return redirect('/login/')
     return redirect('/')
